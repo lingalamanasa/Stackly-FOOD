@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Stackly || Food Security & Agricultural Resilience</title>
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- 1. Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark custom-navbar fixed-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
+      <img src="images/logo.webp" alt="Stackly AgSec Logo" class="logo-img">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item">
+          <a class="nav-link active" href="index.html"><i class="bi bi-house-door"></i> Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html"><i class="bi bi-shield-check"></i> About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="services.html"><i class="bi bi-shield-check"></i> Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="blog.html"><i class="bi bi-journal-text"></i> Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html"><i class="bi bi-envelope"></i> Contact</a>
+        </li>
+        <li class="nav-item dropdown ms-lg-3">
+          <a class="nav-link dropdown-toggle profile-icon" href="#" role="button" data-bs-toggle="dropdown">
+            <i class="bi bi-person-circle fs-4"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end custom-dropdown">
+            <li><a class="dropdown-item" href="login.html"><i class="bi bi-box-arrow-in-right"></i> Login</a></li>
+            <li><a class="dropdown-item" href="register.html"><i class="bi bi-person-plus"></i> Register</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- 2. Hero Section -->
+<section class="hero-section d-flex align-items-center">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 text-content">
+        <h1 class="hero-title">
+          <span>Food Security</span> <br> made resilient
+        </h1>
+        <p class="hero-text">
+          Designed to protect global food chains and agricultural assets. We provide IoT crop monitoring, real-time risk assessment, and secure distribution channels on one unified platform with expert agronomist guidance.
+        </p>
+        <div class="hero-buttons">
+          <a href="error.html" class="btn btn-cyber">Explore Services</a>
+          <a href="error.html" class="btn btn-link-custom">Our Technology</a>
+        </div>
+      </div>
+      <div class="col-lg-6 text-center">
+        <img src="images/welcome.webp" class="img-fluid hero-img" alt="Food Security Hero Image">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Stats Section -->
+<section class="stats-section">
+  <div class="container">
+    <h2 class="text-center stats-title">Award-Winning Agricultural Resilience</h2>
+    <div class="row mt-5">
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="stat-card text-center">
+          <i class="bi bi-shield-check stat-icon"></i>
+          <h3 class="counter stat-number" data-target="4500" data-suffix="+">0</h3>
+          <p>Farms Monitored</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="stat-card text-center">
+          <i class="bi bi-globe stat-icon"></i>
+          <h3 class="counter stat-number" data-target="80" data-suffix="+">0</h3>
+          <p>Regions Secured</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="stat-card text-center">
+          <i class="bi bi-award stat-icon"></i>
+          <h3 class="counter stat-number" data-target="95" data-suffix="%">0</h3>
+          <p>Security Index</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Why Choose Section -->
+<section class="choose-section">
+  <div class="container">
+    <h2 class="text-center section-title">Why choose <span>Stackly AgSec</span>?</h2>
+    <div class="tabs text-center mt-4">
+      <button class="tab-btn active" onclick="showTab('protection')">Crop Protection</button>
+      <button class="tab-btn" onclick="showTab('performance')">Yield Performance</button>
+      <button class="tab-btn" onclick="showTab('easy')">Easy Diagnostics</button>
+    </div>
+    <div class="tab-content mt-5">
+      <!-- Tab 1 -->
+      <div class="tab-pane active" id="protection">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <h3>Complete Bio-Defense</h3>
+            <p>Stackly AgSec uses advanced IoT and machine learning algorithms to detect soil pathogens and pest intrusions before they impact harvest yield.</p>
+            <ul>
+              <li><i class="bi bi-check-circle-fill"></i> Continuous crop health surveillance</li>
+              <li><i class="bi bi-check-circle-fill"></i> Automatic disease alert triggers</li>
+              <li><i class="bi bi-check-circle-fill"></i> Secure supply chain records</li>
+            </ul>
+          </div>
+          <div class="col-lg-6 text-center">
+            <img src="images/hero1.webp" class="img-fluid tab-img" alt="Bio Defense">
+          </div>
+        </div>
+      </div>
+      <!-- Tab 2 -->
+      <div class="tab-pane" id="performance">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <h3>Optimizing Soil & Output</h3>
+            <p>Lightweight remote monitoring sensors running on solar power continuously track moisture, nutrients, and temperature conditions to guide irrigation cycles.</p>
+            <ul>
+              <li><i class="bi bi-check-circle-fill"></i> Automated soil data gathering</li>
+              <li><i class="bi bi-check-circle-fill"></i> Weekly yield predictions</li>
+            </ul>
+          </div>
+          <div class="col-lg-6 text-center">
+            <img src="images/hero2.webp" class="img-fluid tab-img" alt="Soil Optimization">
+          </div>
+        </div>
+      </div>
+      <!-- Tab 3 -->
+      <div class="tab-pane" id="easy">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <h3>Simple Partner Console</h3>
+            <p>Get complete insight into crop indices, soil history, and order logs through an intuitive desktop and mobile interface designed for farmers.</p>
+            <ul>
+              <li><i class="bi bi-check-circle-fill"></i> Customizable threat alerts</li>
+              <li><i class="bi bi-check-circle-fill"></i> Direct agricultural advisor chat</li>
+            </ul>
+          </div>
+          <div class="col-lg-6 text-center">
+            <img src="images/hero3.webp" class="img-fluid tab-img" alt="Partner Console">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. Platforms Section -->
+<section class="platform-section">
+  <div class="container text-center">
+    <h2 class="platform-title">If you are a Farmer or Distributor, we have got great news.</h2>
+    <p class="platform-subtitle">Stackly AgSec packages offer specialized applications where you need them most</p>
+    <div class="row mt-5">
+      <!-- Card 1 -->
+      <div class="col-lg-6 mb-4">
+        <div class="platform-card">
+          <div class="row align-items-center">
+            <div class="col-md-6 text-start">
+              <p class="small-text">Farmer Dashboard</p>
+              <h4>AgSec for Growers</h4>
+              <p>Essential diagnostic tools to safeguard crop outputs and inspect soil indices.</p>
+              <a href="error.html" class="know-btn">Know More <i class="bi bi-arrow-right"></i></a>
+            </div>
+            <div class="col-md-6 text-center">
+              <img src="images/blog4.webp" class="img-fluid card-img" alt="Farmer App">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="col-lg-6 mb-4">
+        <div class="platform-card">
+          <div class="row align-items-center">
+            <div class="col-md-6 text-start">
+              <p class="small-text">Distributor App</p>
+              <h4>Cold-Chain Logistics</h4>
+              <p>Real-time logistics, humidity controls, and secure grain delivery tracking.</p>
+              <a href="error.html" class="know-btn">Know More <i class="bi bi-arrow-right"></i></a>
+            </div>
+            <div class="col-md-6 text-center">
+              <img src="images/blog5.webp" class="img-fluid card-img" alt="Distributor App">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. Services Section -->
+<section class="services-section">
+  <div class="container">
+    <div class="row align-items-center mb-5">
+      <div class="col-lg-6">
+        <h1 class="service-title">Our Food Security Services</h1>
+        <p class="service-text">
+          Run your agricultural operations confidently while Stackly AgSec monitors, audits, and mitigates biological and supply chain threats.
+        </p>
+        <a href="contact.html" class="chat-btn">Request Audit</a>
+      </div>
+      <div class="col-lg-6 text-center">
+        <div class="circle-design"></div>
+      </div>
+    </div>
+    <div class="row g-4">
+      <!-- Cards -->
+      <div class="col-lg-6">
+        <div class="service-card">
+          <h3>Crop & Soil Diagnostics</h3>
+          <p>Advanced lab analysis and genetic testing to pinpoint crop diseases and implement organic remediation paths.</p>
+          <a href="services.html" class="arrow-btn"><i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="service-card">
+          <h3>Weather & Pest Intelligence</h3>
+          <p>Continuous predictive models utilizing regional sensor arrays to forecast pest waves and climate shifts.</p>
+          <a href="services.html" class="arrow-btn"><i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="service-card">
+          <h3>Supply Traceability</h3>
+          <p>End-to-end QR and secure ledger tracking from harvest nodes to customer markets, verifying pesticide levels.</p>
+          <a href="services.html" class="arrow-btn"><i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="service-card">
+          <h3>Supply Chain Stress Testing</h3>
+          <p>Simulating logistics bottlenecks, transport blockades, and storage leaks to guarantee grain reserve endurance.</p>
+          <a href="services.html" class="arrow-btn"><i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="service-card">
+          <h3>Quality & Adulteration Control</h3>
+          <p>Assuring food and grain purity standards, testing for contamination, mold, or illegal pesticide concentrations.</p>
+          <a href="services.html" class="arrow-btn"><i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="service-card">
+          <h3>Cold-Chain & Storage Auditing</h3>
+          <p>Evaluating refrigeration parameters, silos integrity, and humidity levels to prevent storage decay losses.</p>
+          <a href="services.html" class="arrow-btn"><i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. Business Tools Section -->
+<section class="business-section">
+  <div class="container">
+    <h2 class="business-title text-center">Tools built to protect the needs of modern farmers</h2>
+    <div class="row align-items-center mt-5">
+      <div class="col-lg-6 text-center">
+        <div class="image-box">
+          <img src="images/cta_bg.webp" class="img-fluid" alt="AgSec Tools">
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <h3>Robust protection for local farm cooperatives</h3>
+        <p>Stackly AgSec helps smallholders and farming cooperatives set up biological defenses easily while optimizing grain storage reserves.</p>
+        <ul class="business-list">
+          <li><i class="bi bi-check-circle-fill"></i> Plug-and-play IoT sensors</li>
+          <li><i class="bi bi-check-circle-fill"></i> Low-maintenance setups</li>
+          <li><i class="bi bi-check-circle-fill"></i> Affordable regional options</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row align-items-center mt-5 flex-lg-row-reverse">
+      <div class="col-lg-6 text-center">
+        <div class="image-box">
+          <img src="images/story.webp" class="img-fluid" alt="Logistics tools">
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <h3>Maximize supply safety with endpoint tracking</h3>
+        <p>Stackly grain transport security seals and route scanners safeguard logistics networks against adulteration and product loss.</p>
+        <ul class="business-list">
+          <li><i class="bi bi-check-circle-fill"></i> Real-time secure transport metrics</li>
+          <li><i class="bi bi-check-circle-fill"></i> Automatic temperature adjustments</li>
+          <li><i class="bi bi-check-circle-fill"></i> Instant dispatch notification alerts</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. Solutions Section -->
+<section class="solutions-section">
+  <div class="container text-center">
+    <h2 class="solutions-title">More agricultural security solutions for your needs</h2>
+    <p class="solutions-subtitle">No matter the scale of your harvest, Stackly has a system for you</p>
+    <div class="row mt-5 g-4">
+      <!-- Solution 1 -->
+      <div class="col-lg-3 col-md-6">
+        <div class="solution-card">
+          <i class="bi bi-shield-check icon"></i>
+          <h5>Agri-Shield Optimum</h5>
+          <p>Adaptive soil diagnostics and pest prevention package for growing seasons.</p>
+          <a href="services.html" class="solution-btn">Learn More</a>
+        </div>
+      </div>
+      <!-- Solution 2 -->
+      <div class="col-lg-3 col-md-6">
+        <div class="solution-card">
+          <i class="bi bi-globe icon"></i>
+          <h5>IoT Crops Gateway</h5>
+          <p>Solar-powered sensor grids mapping farm microclimates continuously.</p>
+          <a href="services.html" class="solution-btn">Learn More</a>
+        </div>
+      </div>
+      <!-- Solution 3 -->
+      <div class="col-lg-3 col-md-6">
+        <div class="solution-card">
+          <i class="bi bi-envelope icon"></i>
+          <h5>Harvest Alert System</h5>
+          <p>Direct notification channels warning farmers of weather anomalies.</p>
+          <a href="services.html" class="solution-btn">Learn More</a>
+        </div>
+      </div>
+      <!-- Solution 4 -->
+      <div class="col-lg-3 col-md-6">
+        <div class="solution-card">
+          <i class="bi bi-microsoft icon"></i>
+          <h5>Inspector Platform</h5>
+          <p>Coordinated management tools for cooperative field audits.</p>
+          <a href="services.html" class="solution-btn">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. Footer Section -->
+<footer class="footer-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 mb-4">
+        <h3 class="footer-logo d-flex align-items-center">
+          <img src="images/logo.webp" alt="Stackly AgSec Logo" class="footer-logo-img me-2">
+        </h3>
+        <p class="footer-text">
+          Advanced biological defense and logistics solutions safeguarding crop health, grain reserves, and global distribution nodes.
+        </p>
+        <div class="social-icons">
+          <a href="error.html"><i class="bi bi-facebook"></i></a>
+          <a href="error.html"><i class="bi bi-twitter-x"></i></a>
+          <a href="error.html"><i class="bi bi-linkedin"></i></a>
+          <a href="error.html"><i class="bi bi-instagram"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6 mb-4">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="error.html">Careers</a></li>
+          <li><a href="blog.html">Blog & News</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html">Crops Analysis</a></li>
+          <li><a href="services.html">Silo Protection</a></li>
+          <li><a href="services.html">Biosecurity Audits</a></li>
+          <li><a href="services.html">Cold-Chain Logistics</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h5>Support</h5>
+        <ul>
+          <li><a href="error.html">Help Center</a></li>
+          <li><a href="error.html">Privacy Policy</a></li>
+          <li><a href="error.html">Terms & Conditions</a></li>
+          <li><a href="error.html">System Status</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom text-center">
+      <p>&copy; 2026 Stackly AgSec. All rights reserved. Designed with passion by Antigravity.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Script -->
+<script src="js/script.js"></script>
+
+<!-- Custom scripts for home page -->
+<script>
+  function showTab(tabId) {
+    let tabs = document.querySelectorAll('.tab-pane');
+    let buttons = document.querySelectorAll('.tab-btn');
+    tabs.forEach(t => t.classList.remove('active'));
+    buttons.forEach(b => b.classList.remove('active'));
+    
+    document.getElementById(tabId).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+</script>
+</body>
+</html>

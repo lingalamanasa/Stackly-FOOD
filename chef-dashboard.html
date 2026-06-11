@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chef Dashboard || Stackly AgSec</title>
+    <meta name="description" content="Manage field prep, live diagnostics requests, and daily agronomy advisors.">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;700;800&display=swap" rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        .dashboard-card {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            box-shadow: var(--shadow-card);
+            backdrop-filter: blur(10px);
+        }
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .card-header h3 {
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0;
+        }
+        .card-header h3 i {
+            color: var(--primary-color);
+        }
+        .profile-banner {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background: linear-gradient(135deg, var(--bg-card), rgba(30, 41, 59, 0.4));
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            margin-top: 40px;
+        }
+        .profile-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--bg-dark);
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 0 15px rgba(34, 211, 238, 0.3);
+        }
+        .profile-info h2 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+        .membership-badge {
+            display: inline-block;
+            background: linear-gradient(95deg, var(--primary-color), var(--primary-hover));
+            color: var(--bg-dark);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 5px 15px;
+            border-radius: var(--radius-full);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 5px;
+        }
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+        .checklist-item input[type="checkbox"] {
+            accent-color: var(--primary-color);
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        .live-order-card {
+            background: rgba(15, 23, 42, 0.4);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            padding: 25px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+        .live-order-card:hover {
+            border-color: var(--primary-color);
+            transform: scale(1.01);
+            box-shadow: 0 5px 15px rgba(34, 211, 238, 0.1);
+        }
+        .order-meta h4 {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+        .order-meta p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+        }
+        .designer-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .designer-form .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar fixed-top scrolled">
+      <div class="container">
+        <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
+          <img src="images/logo.webp" alt="Stackly AgSec Logo" class="logo-img">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMenu">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house-door"></i> Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="services.html"><i class="bi bi-shield-check"></i> Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="blog.html"><i class="bi bi-journal-text"></i> Blog</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html"><i class="bi bi-envelope"></i> Contact</a></li>
+            <li class="nav-item"><a class="nav-link active" href="#"><i class="bi bi-person-circle"></i> Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link btn btn-cyber text-dark ms-lg-3 px-3 py-1" href="index.html"><i class="bi bi-box-arrow-right"></i> Log Out</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container" style="padding-top: 120px; padding-bottom: 80px;">
+        
+        <!-- SECTION 1: PROFILE BANNER -->
+        <section class="profile-banner animate-on-scroll" id="chef-profile">
+            <div class="profile-avatar">
+                <i class="bi bi-person-workspace"></i>
+            </div>
+            <div class="profile-info">
+                <h2>Welcome Back, <span class="highlight" id="dashboard-username">Dr. Marcus Thorne</span></h2>
+                <p>Lead Agronomist & Field Advisor. Currently managing diagnostic request queues and grain silo parameters.</p>
+                <div class="membership-badge">Advisor Status: Active</div>
+                <p style="margin-top: 10px; font-size: 0.9rem; color: var(--text-muted);">Shift ends in: <strong>4.5 hours</strong> | Field: <strong>Salinas Valley Cooperative</strong></p>
+            </div>
+        </section>
+
+        <div class="dashboard-grid">
+            
+            <!-- SECTION 2: ACTIVE LIVE TICKETS -> ACTIVE DIAGNOSTIC REQUESTS -->
+            <section class="dashboard-card animate-on-scroll" id="active-tickets">
+                <div class="card-header">
+                    <h3><i class="bi bi-activity"></i> Active Diagnostics Requests</h3>
+                    <span class="badge badge-danger">2 Active</span>
+                </div>
+                <!-- Ticket 1 -->
+                <div class="live-order-card">
+                    <div class="order-meta">
+                        <h4>Request #DIAG-085 (Cooperative Salinas)</h4>
+                        <p>Parameters: <strong>Soil Nitrogen Scans x2, Adulteration Check x1</strong></p>
+                        <p style="color: var(--color-secondary); font-size: 0.85rem;"><i class="bi bi-exclamation-triangle"></i> Special Request: Check pesticide load in Zone B.</p>
+                    </div>
+                    <div>
+                        <span class="badge badge-warning">Testing</span>
+                        <button class="btn btn-cyber text-dark btn-sm px-3 ms-3" onclick="alert('Ticket flagged as SCANNED! Results submitted to Partner Portal.')">Mark Scanned</button>
+                    </div>
+                </div>
+                <!-- Ticket 2 -->
+                <div class="live-order-card">
+                    <div class="order-meta">
+                        <h4>Request #DIAG-086 (Cooperative Buffalo)</h4>
+                        <p>Parameters: <strong>Silo Moisture Scan x1, Ventilation Check x1</strong></p>
+                    </div>
+                    <div>
+                        <span class="badge badge-info">Prep Station</span>
+                        <button class="btn btn-cyber text-dark btn-sm px-3 ms-3" onclick="alert('Ticket flagged as SCANNED! Results submitted to Partner Portal.')">Mark Scanned</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 3: KITCHEN PREP CHECKLIST -> INSPECTION CHECKLIST -->
+            <section class="dashboard-card animate-on-scroll" id="prep-checklist">
+                <div class="card-header">
+                    <h3><i class="bi bi-list-check"></i> Field Inspection Checklist</h3>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check-sauces" checked>
+                    <label for="check-sauces">Check calibration levels of telemetry solar sensors</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check-lobster">
+                    <label for="check-lobster">Test soil samples for pathogen indicators (Zone C)</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check-asparagus" checked>
+                    <label for="check-asparagus">Audit grain silos seals at the Northern Warehouse</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="check-stocks">
+                    <label for="check-stocks">Submit daily agricultural weather alerts to control center</label>
+                </div>
+            </section>
+
+            <!-- SECTION 4: MENU DESIGNER CONSOLE -> ADVISORY PUBLISHER -->
+            <section class="dashboard-card animate-on-scroll" id="menu-designer">
+                <div class="card-header">
+                    <h3><i class="bi bi-megaphone"></i> Publish Crop Advisory / Alert</h3>
+                </div>
+                <form class="designer-form" onsubmit="event.preventDefault(); alert('Advisor Special successfully posted to Stackly AgSec Live Alerts Board!'); this.reset();">
+                    <div class="form-group mb-3">
+                        <label class="form-label" for="special-title">Advisory Title *</label>
+                        <input type="text" id="special-title" class="form-control" placeholder="e.g. Pest Risk Warning: Aphids" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label" for="special-price">Region Affected *</label>
+                        <input type="text" id="special-price" class="form-control" placeholder="e.g. Salinas Valley" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label" for="special-badge">Threat Severity</label>
+                        <input type="text" id="special-badge" class="form-control" placeholder="e.g. High Threat / Low Risk">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label" for="special-pairing">Suggested Intervention</label>
+                        <input type="text" id="special-pairing" class="form-control" placeholder="e.g. Organic Soap Spray / Isolation">
+                    </div>
+                    <div class="form-group full-width mb-3">
+                        <label class="form-label" for="special-description">Diagnostic Details & Field Instructions *</label>
+                        <textarea id="special-description" class="form-control" placeholder="Describe symptoms, regional spread trends, and crop treatment steps..." required style="min-height: 80px;"></textarea>
+                    </div>
+                    <div class="form-group full-width text-center mt-3">
+                        <button type="submit" class="btn btn-cyber text-dark px-4">Publish Live Alert</button>
+                    </div>
+                </form>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- FOOTER Section -->
+    <footer class="footer-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-6 mb-4">
+            <h3 class="footer-logo d-flex align-items-center">
+              <img src="images/logo.webp" alt="Stackly AgSec Logo" class="footer-logo-img me-2">
+            </h3>
+            <p class="footer-text">
+              Advanced biological defense and logistics solutions safeguarding crop health, grain reserves, and global distribution nodes.
+            </p>
+            <div class="social-icons">
+              <a href="error.html"><i class="bi bi-facebook"></i></a>
+              <a href="error.html"><i class="bi bi-twitter-x"></i></a>
+              <a href="error.html"><i class="bi bi-linkedin"></i></a>
+              <a href="error.html"><i class="bi bi-instagram"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-6 mb-4">
+            <h5>Company</h5>
+            <ul>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="error.html">Careers</a></li>
+              <li><a href="blog.html">Blog & News</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <h5>Services</h5>
+            <ul>
+              <li><a href="services.html">Crops Analysis</a></li>
+              <li><a href="services.html">Silo Protection</a></li>
+              <li><a href="services.html">Biosecurity Audits</a></li>
+              <li><a href="services.html">Cold-Chain Logistics</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <h5>Support</h5>
+            <ul>
+              <li><a href="error.html">Help Center</a></li>
+              <li><a href="error.html">Privacy Policy</a></li>
+              <li><a href="error.html">Terms & Conditions</a></li>
+              <li><a href="error.html">System Status</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom text-center">
+          <p>&copy; 2026 Stackly AgSec. All rights reserved. Designed with passion by Antigravity.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Script -->
+    <script src="js/script.js"></script>
+</body>
+</html>

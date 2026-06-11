@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Dashboard || Stackly AgSec</title>
+    <meta name="description" content="Manage your crop scans, equipment purchases, and farming credentials.">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;700;800&display=swap" rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        .dashboard-card {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            box-shadow: var(--shadow-card);
+            backdrop-filter: blur(10px);
+        }
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .card-header h3 {
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0;
+        }
+        .card-header h3 i {
+            color: var(--primary-color);
+        }
+        .dashboard-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        .dashboard-table th, .dashboard-table td {
+            padding: 15px;
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .dashboard-table th {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        .dashboard-table td {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+        .profile-banner {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background: linear-gradient(135deg, var(--bg-card), rgba(30, 41, 59, 0.4));
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            margin-top: 40px;
+        }
+        .profile-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--bg-dark);
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 0 15px rgba(34, 211, 238, 0.3);
+        }
+        .profile-info h2 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+        .membership-badge {
+            display: inline-block;
+            background: linear-gradient(95deg, var(--primary-color), var(--primary-hover));
+            color: var(--bg-dark);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 5px 15px;
+            border-radius: var(--radius-full);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 5px;
+        }
+        .dish-card {
+            background: rgba(15, 23, 42, 0.4);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        .dish-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar fixed-top scrolled">
+      <div class="container">
+        <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
+          <img src="images/logo.webp" alt="Stackly AgSec Logo" class="logo-img">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMenu">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house-door"></i> Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="services.html"><i class="bi bi-shield-check"></i> Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="blog.html"><i class="bi bi-journal-text"></i> Blog</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html"><i class="bi bi-envelope"></i> Contact</a></li>
+            <li class="nav-item"><a class="nav-link active" href="#"><i class="bi bi-person-circle"></i> Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link btn btn-cyber text-dark ms-lg-3 px-3 py-1" href="index.html"><i class="bi bi-box-arrow-right"></i> Log Out</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container" style="padding-top: 120px; padding-bottom: 80px;">
+        
+        <!-- SECTION 1: PROFILE BANNER -->
+        <section class="profile-banner animate-on-scroll" id="customer-profile">
+            <div class="profile-avatar">
+                <i class="bi bi-person-bounding-box"></i>
+            </div>
+            <div class="profile-info">
+                <h2>Welcome Back, <span class="highlight" id="dashboard-username">Jane Doe</span></h2>
+                <p>Your agricultural partner credentials are active. Thank you for securing our supply chains!</p>
+                <div class="membership-badge">Gold Partner Tier</div>
+                <p style="margin-top: 10px; font-size: 0.9rem; color: var(--text-muted);">Diagnostics credits: <strong>1,450 pts</strong> (Use 500 points to request free soil scans)</p>
+            </div>
+        </section>
+
+        <div class="dashboard-grid">
+            
+            <!-- SECTION 2: RESERVATION TRACKER -> SOIL SCAN TRACKER -->
+            <section class="dashboard-card animate-on-scroll" id="upcoming-reservations">
+                <div class="card-header">
+                    <h3><i class="bi bi-calendar-range"></i> Upcoming Soil Scan Bookings</h3>
+                    <a href="contact.html" class="btn btn-cyber text-dark px-3 py-2" style="font-size: 0.85rem;" id="newBookingBtn">Book A Scan</a>
+                </div>
+                <div style="overflow-x: auto;">
+                    <table class="dashboard-table">
+                        <thead>
+                            <tr>
+                                <th>Booking Ref</th>
+                                <th>Date & Time</th>
+                                <th>Farm Size</th>
+                                <th>Diagnostics Goal</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>#SF-9082</strong></td>
+                                <td>June 18, 2026 - 08:30 AM</td>
+                                <td>40 Acres</td>
+                                <td>Soil Health & NPK Scan</td>
+                                <td><span class="badge badge-success">Confirmed</span></td>
+                                <td>
+                                    <button class="btn btn-outline-info btn-sm px-3" onclick="alert('Modify request sent to regional advisor!')">Modify</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>#SF-9114</strong></td>
+                                <td>July 04, 2026 - 10:00 AM</td>
+                                <td>15 Acres</td>
+                                <td>Pathogen & Pest Scans</td>
+                                <td><span class="badge badge-warning">Pending Review</span></td>
+                                <td>
+                                    <button class="btn btn-outline-danger btn-sm px-3" onclick="alert('Cancel request received.')">Cancel</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- SECTION 3: CUSTOM RECOMMENDATIONS -> AG-SECURITY REVENUE -->
+            <section class="dashboard-card animate-on-scroll" id="recommended-dishes">
+                <div class="card-header">
+                    <h3><i class="bi bi-patch-check"></i> Specially Curated Solutions</h3>
+                </div>
+                <div class="row g-4">
+                    <!-- Rec 1 -->
+                    <div class="col-md-6">
+                        <div class="dish-card h-100">
+                            <div class="dish-image" style="height: 180px;">
+                                <img src="images/dish1.webp" alt="Remediation kit" style="height: 100%; width: 100%; object-fit: cover;">
+                            </div>
+                            <div class="dish-info" style="padding: 20px;">
+                                <h4 style="margin-bottom: 5px;">Agri-Shield Remediation Kit</h4>
+                                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;">Matched 98% based on your soil nitrogen metrics.</p>
+                                <a href="services.html" class="btn btn-cyber text-dark px-3 btn-sm">Pre-order Kit</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Rec 2 -->
+                    <div class="col-md-6">
+                        <div class="dish-card h-100">
+                            <div class="dish-image" style="height: 180px;">
+                                <img src="images/dish3.webp" alt="Telemetry blend" style="height: 100%; width: 100%; object-fit: cover;">
+                            </div>
+                            <div class="dish-info" style="padding: 20px;">
+                                <h4 style="margin-bottom: 5px;">Drought-Resilient Seed Blend</h4>
+                                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;">Matched 92% based on your local microclimate indexes.</p>
+                                <a href="services.html" class="btn btn-cyber text-dark px-3 btn-sm">Pre-order Seeds</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 4: ORDER HISTORY -> PAST LOGS -->
+            <section class="dashboard-card animate-on-scroll" id="past-orders">
+                <div class="card-header">
+                    <h3><i class="bi bi-clock-history"></i> Past Equipment & Seed Purchases</h3>
+                </div>
+                <div style="overflow-x: auto;">
+                    <table class="dashboard-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Items Purchased</th>
+                                <th>Date</th>
+                                <th>Total Cost</th>
+                                <th>Delivery Silo</th>
+                                <th>Receipt</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>#ORD-10492</strong></td>
+                                <td>Soil Remediation Kit x2, Nitrogen Sensors x1</td>
+                                <td>May 20, 2026</td>
+                                <td>$184.50</td>
+                                <td>Salinas Warehouse Silo 4</td>
+                                <td><a href="#" style="color: var(--primary-color); text-decoration: none;"><i class="bi bi-file-earmark-pdf"></i> PDF Receipt</a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>#ORD-09871</strong></td>
+                                <td>Drought-Resilient Corn Seeds x5, Moisture Telemetry Tag x1</td>
+                                <td>April 12, 2026</td>
+                                <td>$290.00</td>
+                                <td>Salinas Warehouse Silo 4</td>
+                                <td><a href="#" style="color: var(--primary-color); text-decoration: none;"><i class="bi bi-file-earmark-pdf"></i> PDF Receipt</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- FOOTER Section -->
+    <footer class="footer-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-6 mb-4">
+            <h3 class="footer-logo d-flex align-items-center">
+              <img src="images/logo.webp" alt="Stackly AgSec Logo" class="footer-logo-img me-2">
+            </h3>
+            <p class="footer-text">
+              Advanced biological defense and logistics solutions safeguarding crop health, grain reserves, and global distribution nodes.
+            </p>
+            <div class="social-icons">
+              <a href="error.html"><i class="bi bi-facebook"></i></a>
+              <a href="error.html"><i class="bi bi-twitter-x"></i></a>
+              <a href="error.html"><i class="bi bi-linkedin"></i></a>
+              <a href="error.html"><i class="bi bi-instagram"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-6 mb-4">
+            <h5>Company</h5>
+            <ul>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="error.html">Careers</a></li>
+              <li><a href="blog.html">Blog & News</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <h5>Services</h5>
+            <ul>
+              <li><a href="services.html">Crops Analysis</a></li>
+              <li><a href="services.html">Silo Protection</a></li>
+              <li><a href="services.html">Biosecurity Audits</a></li>
+              <li><a href="services.html">Cold-Chain Logistics</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <h5>Support</h5>
+            <ul>
+              <li><a href="error.html">Help Center</a></li>
+              <li><a href="error.html">Privacy Policy</a></li>
+              <li><a href="error.html">Terms & Conditions</a></li>
+              <li><a href="error.html">System Status</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom text-center">
+          <p>&copy; 2026 Stackly AgSec. All rights reserved. Designed with passion by Antigravity.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Script -->
+    <script src="js/script.js"></script>
+</body>
+</html>

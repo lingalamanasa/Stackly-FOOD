@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Contact || Stackly AgSec</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- 1. Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark custom-navbar fixed-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
+      <img src="images/logo.webp" alt="Stackly AgSec Logo" class="logo-img">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house-door"></i> Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html"><i class="bi bi-shield-check"></i> About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="services.html"><i class="bi bi-shield-check"></i> Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html"><i class="bi bi-journal-text"></i> Blog</a></li>
+        <li class="nav-item"><a class="nav-link active" href="contact.html"><i class="bi bi-envelope"></i> Contact</a></li>
+        <li class="nav-item dropdown ms-lg-3">
+          <a class="nav-link dropdown-toggle profile-icon" href="#" role="button" data-bs-toggle="dropdown">
+            <i class="bi bi-person-circle fs-4"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end custom-dropdown">
+            <li><a class="dropdown-item" href="login.html"><i class="bi bi-box-arrow-in-right"></i> Login</a></li>
+            <li><a class="dropdown-item" href="register.html"><i class="bi bi-person-plus"></i> Register</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- 2. Page Hero Section -->
+<section class="page-hero">
+  <div class="container">
+    <h1 class="section-title">Get in <span>Touch</span></h1>
+    <p>We are ready to secure your operations. Schedule a biological scan, request silo audits, or coordinate cold-chain reviews.</p>
+  </div>
+</section>
+
+<!-- 3. Contact Form & Info Grid Section -->
+<section class="contact-section pt-0 pb-5">
+  <div class="container">
+    <div class="row">
+      <!-- Contact Info -->
+      <div class="col-lg-5 mb-5 mb-lg-0">
+        <div class="custom-card p-5 h-100 bg-dark">
+          <h3 class="mb-4">Contact Information</h3>
+          <p class="text-muted mb-5">Fill out the diagnostic request form and our regional agronomist will contact you within 24 hours.</p>
+          
+          <div class="d-flex align-items-start mb-4">
+            <i class="bi bi-telephone text-warning fs-3 me-3"></i>
+            <div>
+              <h5>Call Advisor</h5>
+              <p class="text-muted">+1 (555) 123-4567</p>
+            </div>
+          </div>
+          
+          <div class="d-flex align-items-start mb-4">
+            <i class="bi bi-envelope text-warning fs-3 me-3"></i>
+            <div>
+              <h5>Email Inspector</h5>
+              <p class="text-muted">audit@stacklyagsec.com</p>
+            </div>
+          </div>
+          
+          <div class="d-flex align-items-start">
+            <i class="bi bi-geo-alt text-warning fs-3 me-3"></i>
+            <div>
+              <h5>Headquarters</h5>
+              <p class="text-muted">102 Agricultural District, Suite 500<br>Central Hub, NY 10001</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Contact Form -->
+      <div class="col-lg-7">
+        <div class="custom-card p-5 h-100">
+          <h3 class="mb-4">Request Farm Audit / Diagnostic</h3>
+          <form id="contactForm">
+            <div class="row">
+              <div class="col-md-6 mb-3 form-group">
+                <label class="form-label" for="contact-name">Full Name *</label>
+                <input type="text" id="contact-name" class="form-control" placeholder="John Doe" required>
+                <div class="error-message text-danger small mt-1" style="display:none;"></div>
+              </div>
+              <div class="col-md-6 mb-3 form-group">
+                <label class="form-label" for="contact-phone">Phone Number</label>
+                <input type="text" id="contact-phone" class="form-control" placeholder="+1 (555) 123-4567">
+                <div class="error-message text-danger small mt-1" style="display:none;"></div>
+              </div>
+            </div>
+            <div class="mb-3 form-group">
+              <label class="form-label" for="contact-email">Email Address *</label>
+              <input type="email" id="contact-email" class="form-control" placeholder="john@example.com" required>
+              <div class="error-message text-danger small mt-1" style="display:none;"></div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3 form-group">
+                <label class="form-label" for="contact-subject">Operation Location / City *</label>
+                <input type="text" id="contact-subject" class="form-control" placeholder="e.g. Salinas Valley, CA" required>
+                <div class="error-message text-danger small mt-1" style="display:none;"></div>
+              </div>
+              <div class="col-md-6 mb-3 form-group">
+                <label class="form-label" for="contact-size">Estimated Farm/Silo Scale</label>
+                <select id="contact-size" class="form-control" style="background-color: rgba(30, 41, 59, 0.6); color: var(--text-light); border: 1px solid var(--glass-border);">
+                  <option value="small">Smallholder (< 50 Acres)</option>
+                  <option value="medium">Cooperative (50 - 500 Acres)</option>
+                  <option value="large">Industrial Hub (> 500 Acres)</option>
+                </select>
+              </div>
+            </div>
+            <div class="mb-4 form-group">
+              <label class="form-label" for="contact-message">Specific Diagnostic Requirements *</label>
+              <textarea id="contact-message" class="form-control" rows="4" placeholder="Describe soil symptoms, moisture levels, or crop issues..." required></textarea>
+              <div class="error-message text-danger small mt-1" style="display:none;"></div>
+            </div>
+            <button type="submit" class="btn btn-cyber w-100">Send Audit Request</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. FAQ Accordion Section [NEW SECTION] -->
+<section class="faq-section bg-dark border-top border-bottom border-secondary">
+  <div class="container" style="max-width: 800px;">
+    <div class="text-center mb-5">
+      <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
+      <p class="section-subtitle">Common questions regarding agricultural audits and IoT telemetry setups.</p>
+    </div>
+    
+    <div class="accordion" id="faqAccordion">
+      <!-- FAQ 1 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            How long does a crop diagnostics soil scan take?
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Soil nutrition assays take 24-48 hours from sample arrival. DNA PCR screening takes up to 72 hours due to molecular profiling schedules.
+          </div>
+        </div>
+      </div>
+      <!-- FAQ 2 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            What is the SiloShield biosecurity audit?
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            SiloShield is our comprehensive storage audit. We inspect physical seals, evaluate automated ventilation fans, and verify thermal telemetry trackers to eliminate mold and moisture risks.
+          </div>
+        </div>
+      </div>
+      <!-- FAQ 3 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Do you support logistics tracing during shipping?
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Yes, our logistics program integrates active GPS temperature/humidity sensors and digital security seals to log route parameters securely from farm gate to grain terminal.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. Emergency Alert Reporting Section [NEW SECTION] -->
+<section class="emergency-section pt-5 pb-5">
+  <div class="container text-center">
+    <div class="p-5 rounded-4 bg-danger bg-opacity-10 border border-danger border-opacity-25" style="max-width: 800px; margin: 0 auto;">
+      <h3 class="text-danger mb-3"><i class="bi bi-exclamation-octagon-fill"></i> Emergency Biological Alert?</h3>
+      <p class="text-muted mb-4">Are you experiencing rapid crop decay, insect invasions, or silo temperature spikes? Contact our agronomist emergency squad immediately.</p>
+      <a href="tel:+15551234567" class="btn btn-danger px-4 py-2 fw-bold"><i class="bi bi-telephone-fill me-2"></i> Call Hot-line: +1 (555) 123-4567</a>
+    </div>
+  </div>
+</section>
+
+<!-- 6. Our Regional Labs Locations Section [NEW SECTION] -->
+<section class="labs-section bg-dark border-top border-bottom border-secondary">
+  <div class="container text-center">
+    <h2 class="section-title">Regional <span>Hub Labs</span></h2>
+    <p class="section-subtitle">Dispatch points and testing hubs for farm diagnostic audits.</p>
+    <div class="row g-4 mt-2">
+      <div class="col-lg-4 col-md-6">
+        <div class="custom-card p-4">
+          <h5>Salinas Diagnostic Hub</h5>
+          <p class="text-muted small mb-0">Servicing Western agriculture sectors. Soil labs, DNA assays.</p>
+          <p class="text-primary small mt-2">Call: +1 (555) 111-2222</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="custom-card p-4">
+          <h5>Midwest Storage Lab</h5>
+          <p class="text-muted small mb-0">Servicing grain silo belt districts. Telemetry calibrations.</p>
+          <p class="text-primary small mt-2">Call: +1 (555) 333-4444</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-12">
+        <div class="custom-card p-4">
+          <h5>Eastern Logistics Hub</h5>
+          <p class="text-muted small mb-0">Servicing shipping corridors and port cold chains.</p>
+          <p class="text-primary small mt-2">Call: +1 (555) 555-6666</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. Footer Section -->
+<footer class="footer-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 mb-4">
+        <h3 class="footer-logo d-flex align-items-center">
+          <img src="images/logo.webp" alt="Stackly AgSec Logo" class="footer-logo-img me-2">
+        </h3>
+        <p class="footer-text">
+          Advanced biological defense and logistics solutions safeguarding crop health, grain reserves, and global distribution nodes.
+        </p>
+        <div class="social-icons">
+          <a href="error.html"><i class="bi bi-facebook"></i></a>
+          <a href="error.html"><i class="bi bi-twitter-x"></i></a>
+          <a href="error.html"><i class="bi bi-linkedin"></i></a>
+          <a href="error.html"><i class="bi bi-instagram"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6 mb-4">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="error.html">Careers</a></li>
+          <li><a href="blog.html">Blog & News</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html">Crops Analysis</a></li>
+          <li><a href="services.html">Silo Protection</a></li>
+          <li><a href="services.html">Biosecurity Audits</a></li>
+          <li><a href="services.html">Cold-Chain Logistics</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h5>Support</h5>
+        <ul>
+          <li><a href="error.html">Help Center</a></li>
+          <li><a href="error.html">Privacy Policy</a></li>
+          <li><a href="error.html">Terms & Conditions</a></li>
+          <li><a href="error.html">System Status</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom text-center">
+      <p>&copy; 2026 Stackly AgSec. All rights reserved. Designed with passion by Antigravity.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Script -->
+<script src="js/script.js"></script>
+</body>
+</html>
